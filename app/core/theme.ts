@@ -12,8 +12,19 @@ export const breakpoints = {
   xxl: createBreakpoint(1400),
 };
 
+const grays = {
+  gray100: 'black',
+  gray900: 'white',
+};
+
 export const theme = {
-  colors: {},
+  colors: {
+    ...grays,
+    backgroundDark: grays.gray100,
+    backgroundLight: grays.gray900,
+    textDark: grays.gray100,
+    textLight: grays.gray900,
+  },
   sizes: {},
 };
 

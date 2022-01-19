@@ -1,9 +1,13 @@
+// if anyone says "use tsconfig-paths!!!11!", suck one because that shit doesn't work
+import 'module-alias/register';
+import 'dotenv/config';
+import './handlers';
 import { createServer } from 'http';
 import express from 'express';
 import { parse } from 'url';
 import next from 'next';
 import { Server as SocketServer } from 'socket.io';
-import wsFilepath from './ws-filepath-middleware';
+import { socketHandlerMiddlware } from './socket-handler';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 const dev = process.env.NODE_ENV !== 'production';
@@ -34,7 +38,7 @@ const wsPath = '/ws';
   const io = new SocketServer(httpServer, {
     path: wsPath,
   });
-  io.use(wsFilepath.next());
+  io.use(socketHandlerMiddlware());
 
   httpServer.listen(port);
   console.log(

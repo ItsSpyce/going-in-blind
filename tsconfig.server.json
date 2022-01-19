@@ -7,5 +7,7 @@
     "isolatedModules": false,
     "noEmit": false
   },
-  "include": ["server/**/*.ts"]
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }

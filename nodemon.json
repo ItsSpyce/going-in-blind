@@ -1,5 +1,5 @@
 {
-  "watch": ["server", "pages"],
-  "exec": "ts-node --project tsconfig.server.json server/index.ts",
-  "ext": "js ts"
+  "watch": ["server", "pages", "prisma"],
+  "exec": "npm run build:prisma && npm run start:server",
+  "ext": "js ts prisma"
 }
